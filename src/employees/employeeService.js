@@ -1,5 +1,6 @@
-export const getEmployees = () => {
-  return [
+const STORAGE_KEY = "employees";
+
+const seedEmployees = [
     {
       id: 1,
       name: "Arun Kumar",
@@ -12,7 +13,7 @@ export const getEmployees = () => {
       id: 2,
       name: "Namratha",
       gender: "Female",
-      dob: "1999-03-08",
+      dob: "1999-08-08",
       state: "Vishakapatnam",
       isActive: false,
     },
@@ -25,4 +26,15 @@ export const getEmployees = () => {
       isActive: true,
     },
   ];
+
+export const loadEmployees = () => {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) return JSON.parse(stored);
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(seedEmployees));
+  return seedEmployees;
+};
+
+export const saveEmployees = (employees) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(employees));
 };

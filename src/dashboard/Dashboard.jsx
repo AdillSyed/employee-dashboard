@@ -1,9 +1,9 @@
 import AppLayout from "../layout/AppLayout";
 import SummaryCards from "./SummaryCards";
-import { getEmployees } from "../employees/employeeService";
+import { useEmployees } from "../employees/employeeContext";
 
 export default function Dashboard() {
-  const employees = getEmployees();
+  const { employees } = useEmployees();
 
   const total = employees.length;
   const active = employees.filter((e) => e.isActive).length;

@@ -1,10 +1,10 @@
 import AppLayout from "../layout/AppLayout";
 
-export default function Dashboard() {
+export default function Employees() {
   return (
     <AppLayout>
       <h2 className="text-2xl font-semibold text-slate-800">
-        Dashboard
+        Employees
       </h2>
     </AppLayout>
   );

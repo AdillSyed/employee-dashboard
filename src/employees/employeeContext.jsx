@@ -4,11 +4,7 @@ import { loadEmployees, saveEmployees } from "./employeeService";
 const EmployeeContext = createContext();
 
 export function EmployeeProvider({ children }) {
-  const [employees, setEmployees] = useState([]);
-
-  useEffect(() => {
-    setEmployees(loadEmployees());
-  }, []);
+  const [employees, setEmployees] = useState(() => loadEmployees());
 
   useEffect(() => {
     saveEmployees(employees);

@@ -5,6 +5,7 @@ export default function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
   const storedAuth =
     localStorage.getItem("isAuthenticated") === "true";
+  console.log("stored auth", storedAuth, isAuthenticated)
 
   if (!isAuthenticated || !storedAuth) {
     return <Navigate to="/" replace />;

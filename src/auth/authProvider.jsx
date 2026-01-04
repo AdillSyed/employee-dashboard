@@ -2,12 +2,10 @@ import { useState } from "react";
 import { AuthContext } from "./authContext";
 
 export function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem("isAuthenticated") === "true";
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   const login = ({ email, password }) => {
-    if (email === "admin@example.com" && password === "admin123") {
+    if (email === "admin@gmail.com" && password === "admin@123") {
       localStorage.setItem("isAuthenticated", "true");
       setIsAuthenticated(true);
       return true;

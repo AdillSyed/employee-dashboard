@@ -82,7 +82,7 @@ export default function Login() {
         </form>
 
         <p className="mt-4 text-xs text-slate-400 text-center">
-          Demo: admin@gmail.com / admin123
+          Demo: admin@gmail.com / admin@123
         </p>
       </div>
     </div>

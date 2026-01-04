@@ -1,6 +1,6 @@
 import { useEmployees } from "./employeeContext";
 
-export default function EmployeeRow({ employee }) {
+export default function EmployeeRow({ employee, onEdit, onDelete }) {
   const { toggleStatus } = useEmployees();
 
   return (
@@ -44,8 +44,19 @@ export default function EmployeeRow({ employee }) {
         </button>
       </td>
 
-      <td className="px-4 py-3 text-sm text-slate-400">
-        Edit · Delete · Print
+      <td className="px-4 py-3 text-sm space-x-2">
+        <button
+          onClick={() => onEdit(employee)}
+          className="text-indigo-600 hover:underline"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => onDelete(employee)}
+          className="text-red-600 hover:underline"
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );

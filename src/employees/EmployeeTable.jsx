@@ -1,7 +1,7 @@
 import EmployeeRow from "./EmployeeRow";
 import EmptyState from "../components/EmptyState";
 
-export default function EmployeeTable({ employees }) {
+export default function EmployeeTable({ employees, onEdit, onDelete }) {
   if (employees.length === 0) {
     return (
       <EmptyState
@@ -29,7 +29,7 @@ export default function EmployeeTable({ employees }) {
 
         <tbody>
           {employees.map((emp) => (
-            <EmployeeRow key={emp.id} employee={emp} />
+            <EmployeeRow key={emp.id} employee={emp} onEdit={onEdit} onDelete={onDelete}/>
           ))}
         </tbody>
       </table>

@@ -1,11 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    () => localStorage.getItem("isAuthenticated") === "true"
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const storedAuth = localStorage.getItem("isAuthenticated") === "true";
+    setIsAuthenticated(storedAuth);
+  }, []);
 
   const login = ({ email, password }) => {
     if (email === "admin@gmail.com" && password === "admin123") {

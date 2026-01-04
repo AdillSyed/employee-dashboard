@@ -5,8 +5,8 @@ export default function EmployeeTable({ employees, onEdit, onDelete }) {
   if (employees.length === 0) {
     return (
       <EmptyState
-        title="No employees found"
-        description="Add your first employee to get started."
+        title="No matching employees"
+        description="Try adjusting your search or filters."
       />
     );
   }

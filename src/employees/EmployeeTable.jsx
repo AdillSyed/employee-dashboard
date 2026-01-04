@@ -5,7 +5,7 @@ export default function EmployeeTable({ employees, onEdit, onDelete }) {
   if (employees.length === 0) {
     return (
       <EmptyState
-        title="No matching employees"
+        title="No results found"
         description="Try adjusting your search or filters."
       />
     );
@@ -14,7 +14,7 @@ export default function EmployeeTable({ employees, onEdit, onDelete }) {
   return (
     <div className="bg-white rounded-2xl shadow-sm overflow-x-auto">
       <table className="w-full text-left">
-        <thead className="bg-slate-50">
+        <thead className="bg-slate-50 font-medium text-sm">
           <tr className="text-sm text-slate-600">
             <th className="px-4 py-3">ID</th>
             <th className="px-4 py-3">Profile</th>

@@ -144,13 +144,13 @@ export default function EmployeeForm({ onClose, existingEmployee }) {
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-sm"
+            className="px-4 py-2 text-sm border rounded-md border-slate-300 text-slate-700 hover:bg-slate-100 font-medium"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-4 py-2 rounded-md bg-indigo-500 text-white text-sm"
+            className="px-4 py-2 rounded-md bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium"
           >
             Save
           </button>

@@ -34,12 +34,12 @@ export default function Employees() {
 
   return (
     <AppLayout>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8">
         <h2 className="text-2xl font-semibold text-slate-800">Employees</h2>
           <div className="flex gap-2">
             <button
               onClick={() => window.print()}
-              className="border border-slate-300 px-4 py-2 rounded-md text-sm hover:bg-slate-100"
+              className="border border-slate-300 px-4 py-2 rounded-md text-sm text-slate-700 hover:bg-slate-100 font-medium"
             >
               Print
             </button>
@@ -49,7 +49,7 @@ export default function Employees() {
                 setSelectedEmployee(null);
                 setOpenForm(true);
               }}
-              className="bg-indigo-500 text-white px-4 py-2 rounded-md text-sm"
+              className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium"
             >
               + Add Employee
             </button>
@@ -57,18 +57,19 @@ export default function Employees() {
         {openForm && <EmployeeForm onClose={() => setOpenForm(false)} />}
       </div>
 
-      <div className="flex flex-wrap gap-3 mb-6 items-center">
+      <div className="flex flex-wrap gap-3 mb-8 items-center">
         <input
           type="text"
           placeholder="Search by name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="px-3 py-2 rounded-md bg-slate-100 text-sm"
+          className="bg-slate-100 rounded-md px-3 py-2 text-sm
+           focus:outline-none focus:ring-2 focus:ring-indigo-400 hover:bg-slate-200"
         />
         <select
           value={gender}
           onChange={(e) => setGender(e.target.value)}
-          className="px-3 py-2 rounded-md bg-slate-100 text-sm"
+          className="px-3 py-2 rounded-md bg-slate-100 text-sm hover:bg-slate-200 font-medium"
         >
           <option value="">All Genders</option>
           <option value="Male">Male</option>
@@ -77,7 +78,7 @@ export default function Employees() {
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="px-3 py-2 rounded-md bg-slate-100 text-sm"
+          className="px-3 py-2 rounded-md bg-slate-100 text-sm hover:bg-slate-200 font-medium"
         >
           <option value="">All Status</option>
           <option value="active">Active</option>
@@ -89,7 +90,7 @@ export default function Employees() {
             setGender("");
             setStatus("");
           }}
-          className="text-sm text-slate-500 hover:underline"
+          className="text-sm text-slate-500 hover:underline font-medium"
         >
           Clear filters
         </button>

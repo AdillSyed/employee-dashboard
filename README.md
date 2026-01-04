@@ -54,4 +54,4 @@ http://localhost:5173
 
 ### 5. Demo Credentials
 Email: admin@gmail.com
-Password: admin123
+Password: admin@123

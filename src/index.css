@@ -49,6 +49,11 @@ body {
   td:last-child {
     display: none !important;
   }
+
+  .max-h-\[60vh\] {
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
 
 @keyframes fade-in {

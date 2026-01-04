@@ -1,4 +1,4 @@
-import { useAuth } from "../auth/authContext";
+import { useAuth } from "../auth/useAuth.js";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {

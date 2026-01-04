@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Modal from "../components/Modal";
 import { validateEmployee } from "../utils/validators";
 import { useEmployees } from "./employeeContext";
@@ -21,6 +21,8 @@ export default function EmployeeForm({ onClose, existingEmployee }) {
   const [preview, setPreview] = useState(() =>
     existingEmployee?.image || null
   );
+  
+  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -64,14 +66,44 @@ export default function EmployeeForm({ onClose, existingEmployee }) {
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="text-sm text-slate-600">Profile Image</label>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-          {preview && (
-            <img
-              src={preview}
-              alt="Preview"
-              className="mt-2 h-20 w-20 rounded-full object-cover"
+          <label className="block text-sm text-slate-600 mb-1">
+            Profile Image
+          </label>
+
+          <div className="flex items-center gap-4">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="hidden"
             />
+
+            <button
+              type="button"
+              onClick={() => fileInputRef.current.click()}
+              className="inline-flex items-center px-4 py-2
+                        rounded-md border border-slate-300 text-sm
+                        hover:bg-slate-100 transition"
+            >
+              Upload Image
+            </button>
+
+            {!preview && (
+              <span className="text-sm text-slate-400">
+                No image selected
+              </span>
+            )}
+          </div>
+
+          {preview && (
+            <div className="mt-3">
+              <img
+                src={preview}
+                alt="Preview"
+                className="h-20 w-20 rounded-full object-cover border"
+              />
+            </div>
           )}
         </div>
 

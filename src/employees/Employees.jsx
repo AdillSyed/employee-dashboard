@@ -100,6 +100,7 @@ export default function Employees() {
 
       {openForm && (
         <EmployeeForm
+          key={selectedEmployee?.id || "new"}
           existingEmployee={selectedEmployee}
           onClose={() => setOpenForm(false)}
         />

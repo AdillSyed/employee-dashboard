@@ -36,15 +36,24 @@ export default function Employees() {
     <AppLayout>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-semibold text-slate-800">Employees</h2>
-        <button
-          onClick={() => {
-            setSelectedEmployee(null);
-            setOpenForm(true);
-          }}
-          className="rounded-md bg-indigo-500 px-4 py-2 text-sm font-medium text-white"
-        >
-          + Add Employee
-        </button>
+          <div className="flex gap-2">
+            <button
+              onClick={() => window.print()}
+              className="border border-slate-300 px-4 py-2 rounded-md text-sm hover:bg-slate-100"
+            >
+              Print
+            </button>
+
+            <button
+              onClick={() => {
+                setSelectedEmployee(null);
+                setOpenForm(true);
+              }}
+              className="bg-indigo-500 text-white px-4 py-2 rounded-md text-sm"
+            >
+              + Add Employee
+            </button>
+          </div>
         {openForm && <EmployeeForm onClose={() => setOpenForm(false)} />}
       </div>
 

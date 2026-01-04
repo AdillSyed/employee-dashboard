@@ -34,7 +34,7 @@ export default function EmployeeRow({ employee, onEdit, onDelete }) {
       <td className="px-4 py-3">
         <button
           onClick={() => toggleStatus(employee.id)}
-          className={`px-3 py-1 rounded-full text-xs font-medium ${
+          className={`px-3 py-1 rounded-full text-xs print:hidden ${
             employee.isActive
               ? "bg-green-100 text-green-700"
               : "bg-slate-200 text-slate-600"
@@ -42,6 +42,9 @@ export default function EmployeeRow({ employee, onEdit, onDelete }) {
         >
           {employee.isActive ? "Active" : "Inactive"}
         </button>
+        <span className="hidden print:inline text-sm">
+          {employee.isActive ? "Active" : "Inactive"}
+        </span>
       </td>
 
       <td className="px-4 py-3 text-sm space-x-2">

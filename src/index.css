@@ -5,3 +5,48 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
+
+@media print {
+  body {
+    background: white;
+  }
+
+  header,
+  aside,
+  button,
+  input,
+  select {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  th {
+    background: #f8fafc;
+    font-weight: 600;
+  }
+
+  h2 {
+    display: block !important;
+    margin-bottom: 12px;
+  }
+  
+  th:last-child,
+  td:last-child {
+    display: none !important;
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "../components/Modal";
 import { validateEmployee } from "../utils/validators";
 import { useEmployees } from "./employeeContext";
@@ -14,16 +14,13 @@ const initialState = {
 
 export default function EmployeeForm({ onClose, existingEmployee }) {
   const { addEmployee, updateEmployee } = useEmployees();
-  const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
-  const [preview, setPreview] = useState(null);
-
-  useEffect(() => {
-    if (existingEmployee) {
-      setValues(existingEmployee);
-      setPreview(existingEmployee.image || null);
-    }
-  }, [existingEmployee]);
+  const [values, setValues] = useState(() =>
+    existingEmployee ? existingEmployee : initialState
+  );
+  const [preview, setPreview] = useState(() =>
+    existingEmployee?.image || null
+  );
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
